@@ -1,7 +1,7 @@
 package com.redbeeacademy.algoritmostest.Lista.EjercicioCine;
 
 
-public class Persona extends ListaPersonas{
+public class Persona extends ListaPersonas {
 
     private Integer edad;
 
