@@ -1,6 +1,7 @@
 package com.redbeeacademy.algoritmostest.Lista.EjercicioCine;
 
 import java.util.List;
+import java.util.Objects;
 
 /*
 Un cine de un pueblo nos pide que generemos una aplicacion para controlar las personas de una cola.
@@ -21,24 +22,54 @@ Tenemos la clase Persona, donde vamos a usarla para modelar edad, y las propieda
  */
 
 
-
 public class Cine {
 
-    public static double cantidadTotalRecaudada(List<Persona> personas){
+    public static double cantidadTotalRecaudada(List<Persona> personas) {
         double cantidadTotal = 0;
-        //TODO -> implement me
+        for (Persona persona : personas) {
+            if (persona.getEdad() >= 5 && persona.getEdad() <= 10) {
+                cantidadTotal += 100;
+            } else if (persona.getEdad() > 10 && persona.getEdad() < 18) {
+                cantidadTotal += 150;
+            } else {
+                cantidadTotal += 200;
+            }
+        }
         return cantidadTotal;
     }
 
-    public static Integer cantidadPersonas(List<Persona> personas){
-        Integer cantidadPersonas = 0;
-        //TODO -> implement me
+
+
+    public static Integer cantidadPersonas(List<Persona> personas) {
+        Integer cantidadPersonasAdultas = 0;
+        Integer cantidadPersonasAdolescentes = 0;
+        Integer cantidadPersonasMenores = 0;
+        for (Persona persona : personas){
+            if (persona != null){
+                if (persona.getEdad() >= 5 && persona.getEdad() <= 10){
+                    cantidadPersonasMenores++;
+                }else if (persona.getEdad() > 10 && persona.getEdad() < 18){
+                    cantidadPersonasAdolescentes++;
+                }else{
+                    cantidadPersonasAdultas++;
+                }
+            }
+        }
+        int cantidadPersonas = cantidadPersonasMenores + cantidadPersonasAdolescentes + cantidadPersonasAdultas;
         return cantidadPersonas;
     }
 
-    public static double promedioEdad(List<Persona> personas){
+    public static double promedioEdad(List<Persona> personas) {
         double promedio = 0;
-        //TODO -> implement me
+        Integer contador = 0;
+
+        for (Persona persona : personas){
+            if (persona != null){
+                promedio += persona.getEdad();
+                contador += 1;
+            }
+        }
+        promedio /= contador;
         return promedio;
     }
 }
